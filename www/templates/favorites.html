@@ -1,0 +1,24 @@
+<ion-view view-title="Favorites | {{username}}" class="favorites-page">
+  <ion-nav-buttons side="right">
+    <button class="button" ng-click="logout()">Log out</button>
+  </ion-nav-buttons>
+
+  <ion-content>
+
+    <ion-list>
+      <ion-item ng-repeat="song in favorites" class="item-avatar item-button-right">
+        <img ng-src="{{ song.image_small }}" ng-click="openSong(song)">
+        <h2 ng-click="openSong(song)">{{ song.title }}</h2>
+        <p ng-click="openSong(song)">{{ song.artist }}</p>
+        <button class="button button-outline button-royal share-button" ng-click="showActionSheet()">
+          <i class="icon ion-android-share-alt"></i>
+        </button>
+
+        <ion-option-button class="button-assertive" ng-click="removeSong(song, $index)">
+          <i class="ion-minus-circled"></i>
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>
